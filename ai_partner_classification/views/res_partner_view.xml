@@ -1,0 +1,36 @@
+<odoo>
+    <!-- فورم العميل: حقل التصنيف + الزر الذكي -->
+    <record id="view_partner_form_ai_classification" model="ir.ui.view">
+        <field name="name">res.partner.form.ai.classification</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <!-- الحقل (badge) تحت الاسم -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field
+                    name="x_ai_classification"
+                    widget="badge"
+                    options="{
+                        'badge_success': ['vip', 'high_value'],
+                        'badge_danger': ['high_risk'],
+                        'badge_secondary': ['inactive', 'low_value']
+                    }"
+                />
+            </xpath>
+
+            <!-- زر في button_box لإعادة التصنيف -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_recalculate_ai_classification"
+                    type="object"
+                    string="Recalculate AI"
+                    class="oe_stat_button"
+                    icon="fa-magic"
+                    help="Recalculate AI classification for this customer."
+                />
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+
+    <!-- Search View: نضيف فلاتر + Group By AI Classification على res.partner -->
+    <record id="view_res_partner_search_ai_classification" model="ir.ui.view">
+        <field name="name">res.partner.search.ai.classification</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <!-- نضيف فلاتر جاهزة لكل تصنيف -->
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="ai_vip" string="VIP" domain="[('x_ai_classification', '=', 'vip')]"/>
+                <filter name="ai_high_value" string="High Value" domain="[('x_ai_classification', '=', 'high_value')]"/>
+                <filter name="ai_active" string="Active (AI)" domain="[('x_ai_classification', '=', 'active')]"/>
+                <filter name="ai_low_value" string="Low Value" domain="[('x_ai_classification', '=', 'low_value')]"/>
+                <filter name="ai_high_risk" string="High Risk" domain="[('x_ai_classification', '=', 'high_risk')]"/>
+                <filter name="ai_inactive" string="Inactive (AI)" domain="[('x_ai_classification', '=', 'inactive')]"/>
+
+                <!-- Group By: AI Classification -->
+                <filter
+                    name="group_by_ai_classification"
+                    string="Group by AI Classification"
+                    context="{'group_by': 'x_ai_classification'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action: AI Customers Report (Tree/Graph/Pivot) -->
+    <record id="action_ai_partner_intelligence" model="ir.actions.act_window">
+        <field name="name">AI Customers Report</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,graph,pivot,form</field>
+        <!-- نعرض فقط العملاء اللي عندهم تصنيف -->
+        <field name="domain">[('x_ai_classification', '!=', False)]</field>
+        <!-- نخلي الـ Group By على AI Classification بشكل افتراضي -->
+        <field name="context">{'search_default_group_by_ai_classification': 1}</field>
+    </record>
+
+</odoo>

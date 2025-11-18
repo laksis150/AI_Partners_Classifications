@@ -1,0 +1,26 @@
+<odoo>
+
+    <menuitem
+        id="menu_ai_partner_intelligence_root"
+        name="AI Intelligence"
+        parent="contacts.menu_contacts"
+        sequence="30"
+    />
+
+    <menuitem
+        id="menu_ai_partner_dashboard"
+        name="AI Overview Dashboard"
+        parent="menu_ai_partner_intelligence_root"
+        action="action_ai_partner_dashboard"
+        sequence="5"
+    />
+
+    <menuitem
+        id="menu_ai_partner_customers_report"
+        name="AI Customers Report"
+        parent="menu_ai_partner_intelligence_root"
+        action="action_ai_partner_intelligence"
+        sequence="10"
+    />
+
+</odoo>

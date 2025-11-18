@@ -1,0 +1,238 @@
+<odoo>
+
+    <!-- Dashboard Form View -->
+    <record id="view_ai_partner_dashboard_form" model="ir.ui.view">
+        <field name="name">ai.partner_dashboard.form</field>
+        <field name="model">ai.partner_dashboard</field>
+        <field name="arch" type="xml">
+            <form string="AI Partner Dashboard" create="false" edit="false" delete="false">
+                <sheet>
+
+                    <!-- HEADER / HERO -->
+                    <div style="
+                        padding: 26px;
+                        border-radius: 20px;
+                        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+                        color: #f9fafb;
+                        margin-bottom: 24px;
+                        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+                    ">
+                        <h1 style="margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">
+                            AI Customers Overview
+                        </h1>
+                        <p style="margin: 0; font-size: 14px; opacity: 0.9;">
+                            Smart insights powered by AI classification — tailored for your business.
+                        </p>
+                    </div>
+
+                    <!-- MAIN LAYOUT: LEFT (KPIs) + RIGHT (EXPLANATION) -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+
+                        <!-- LEFT SIDE: KPI CARDS GRID -->
+                        <div style="flex: 2 1 520px;">
+                            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+
+                                <!-- TOTAL AI CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #020617;
+                                    color: #f9fafb;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .7; letter-spacing: .08em;">
+                                            Total AI Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="total_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .4;">👥</span>
+                                </div>
+
+                                <!-- VIP CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #065f46;
+                                    color: #ecfdf5;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .8; letter-spacing: .08em;">
+                                            VIP Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="vip_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .7;">★</span>
+                                </div>
+
+                                <!-- HIGH VALUE CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #4338ca;
+                                    color: #eef2ff;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .85; letter-spacing: .08em;">
+                                            High Value Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="high_value_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .7;">💎</span>
+                                </div>
+
+                                <!-- HIGH RISK CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #b91c1c;
+                                    color: #fef2f2;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .85; letter-spacing: .08em;">
+                                            High Risk Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="high_risk_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .7;">⚠</span>
+                                </div>
+
+                                <!-- INACTIVE CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #4b5563;
+                                    color: #e5e7eb;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .8; letter-spacing: .08em;">
+                                            Inactive Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="inactive_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .7;">⏸</span>
+                                </div>
+
+                                <!-- LOW VALUE CUSTOMERS -->
+                                <div style="
+                                    flex: 1 1 260px;
+                                    padding: 18px 20px;
+                                    border-radius: 16px;
+                                    background: #6b7280;
+                                    color: #f9fafb;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+                                ">
+                                    <div>
+                                        <span style="font-size: 11px; text-transform: uppercase; opacity: .8; letter-spacing: .08em;">
+                                            Low Value Customers
+                                        </span>
+                                        <h2 style="margin: 6px 0 0 0; font-size: 30px; font-weight: 700;">
+                                            <field name="low_value_customers" nolabel="1"/>
+                                        </h2>
+                                    </div>
+                                    <span style="font-size: 26px; opacity: .7;">⬇</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- RIGHT SIDE: EXPLANATION / RULES -->
+                        <div style="
+                            flex: 1 1 260px;
+                            padding: 18px 20px;
+                            border-radius: 16px;
+                            background: #020617;
+                            color: #e5e7eb;
+                            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                            border-left: 4px solid #7c3aed;
+                            max-width: 360px;
+                        ">
+                            <h2 style="margin: 0 0 10px 0; font-size: 17px; font-weight: 600; color: #f9fafb;">
+                                AI Classification Rules
+                            </h2>
+
+                            <p style="margin: 0 0 10px 0; font-size: 12px; opacity: .8;">
+                                Each customer is classified automatically based on invoices and payment behavior:
+                            </p>
+
+                            <ul style="padding-left: 18px; margin: 0; font-size: 12px; line-height: 1.5;">
+                                <li style="margin-bottom: 6px;">
+                                    <strong>VIP</strong> → total invoices ≥ 20,000 and average invoice ≥ 5,000 and overdue &lt; 30%.
+                                </li>
+                                <li style="margin-bottom: 6px;">
+                                    <strong>High Value</strong> → total invoices ≥ 5,000 and overdue &lt; 50%.
+                                </li>
+                                <li style="margin-bottom: 6px;">
+                                    <strong>High Risk</strong> → overdue ratio ≥ 50% of posted invoices.
+                                </li>
+                                <li style="margin-bottom: 6px;">
+                                    <strong>Low Value</strong> → total invoices &lt; 1,000.
+                                </li>
+                                <li style="margin-bottom: 6px;">
+                                    <strong>Inactive</strong> → no posted invoices found.
+                                </li>
+                                <li style="margin-bottom: 0;">
+                                    <strong>Active</strong> → any other customer that does not match the rules above.
+                                </li>
+                            </ul>
+
+                            <p style="margin: 12px 0 0 0; font-size: 11px; opacity: .7;">
+                                You can adjust these rules later in the Python logic
+                                (<code>_get_classification_from_metrics</code>) to fit your business.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the dashboard -->
+    <record id="action_ai_partner_dashboard" model="ir.actions.act_window">
+        <field name="name">AI Overview Dashboard</field>
+        <field name="res_model">ai.partner_dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_ai_partner_dashboard_form"/>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

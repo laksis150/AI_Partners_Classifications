@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>AI Partner Classification for Odoo 19</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 24px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #f9fafb;
+        }
+        .tagline {
+            color: #a5b4fc;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #f9fafb;
+            margin-bottom: 6px;
+        }
+        .section {
+            margin-bottom: 28px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,184,0.2);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #a5b4fc;
+        }
+        .btn-demo {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #f9fafb;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .muted {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        code {
+            background: #020617;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <span class="badge">Odoo 19 • Contacts • Accounting</span>
+        <h1>AI Partner Classification</h1>
+        <p class="tagline">
+            Turn your customers list into clear, actionable segments (VIP, High Risk, Inactive, and more).
+        </p>
+        <p>
+            <strong>AI Partner Classification</strong> adds a smart, rule-based engine on top of your existing
+            Contacts and Accounting data. It automatically classifies each customer into segments like
+            <strong>VIP</strong>, <strong>High Value</strong>, <strong>Active</strong>, <strong>Low Value</strong>,
+            <strong>High Risk</strong> and <strong>Inactive</strong> so your sales and finance teams know exactly
+            who to focus on first.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Live Demo</h2>
+        <p>
+            You can try the module on a live Odoo 19 instance to see the classification in action.
+        </p>
+        <p>
+            <strong>Live demo URL:</strong><br />
+            <a href="https://odoo.laksis-dev.com/web/login?db=actechs_demo " target="_blank">
+                https://odoo.laksis-dev.com/web/login?db=actechs_demo 
+            </a>
+        </p>
+        <a class="btn-demo" href="https://odoo.laksis-dev.com/web/login?db=actechs_demo " target="_blank">
+            🔗 Open Live Demo
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>Main Features</h2>
+        <ul>
+            <li>New <strong>AI Classification</strong> badge on each contact (VIP, High Risk, etc.).</li>
+            <li>Automatic re-classification based on invoices and payment behavior.</li>
+            <li>Manual <em>"Recalculate AI Classification"</em> button on the contact form.</li>
+            <li>Daily <strong>Scheduled Action</strong> to refresh all customers.</li>
+            <li>AI Overview Dashboard with KPIs and a clear explanation of the rules.</li>
+            <li>AI Customers Report to filter and analyze customers by segment.</li>
+            <li>No external API, no extra Python dependencies – everything runs inside Odoo.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>How It Works</h2>
+        <p>
+            The module looks at your posted customer invoices and computes simple metrics:
+        </p>
+        <ul>
+            <li>Total invoiced amount per customer.</li>
+            <li>Average invoice amount.</li>
+            <li>Number of posted invoices.</li>
+            <li>Overdue ratio based on due date vs. payment state.</li>
+        </ul>
+        <p>
+            Then it applies a transparent, rule-based engine in Python and stores the result
+            in a selection field on <code>res.partner</code>. The rules are easy to understand
+            and can be customized by a developer if needed.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Default Classification Rules</h2>
+        <ul>
+            <li><strong>VIP</strong> → total invoices ≥ 20,000 and average invoice ≥ 5,000 and overdue &lt; 30%.</li>
+            <li><strong>High Value</strong> → total invoices ≥ 5,000 and overdue &lt; 50%.</li>
+            <li><strong>High Risk</strong> → overdue ratio ≥ 50% of posted invoices.</li>
+            <li><strong>Low Value</strong> → total invoices &lt; 1,000.</li>
+            <li><strong>Inactive</strong> → no posted invoices found.</li>
+            <li><strong>Active</strong> → any other customer that does not match the rules above.</li>
+        </ul>
+        <p class="muted">
+            The classification logic lives in a single Python method
+            (<code>_get_classification_from_metrics</code>), making it very easy to adapt to your needs.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Benefits</h2>
+        <ul>
+            <li>Give your sales team a clear view of who matters most (VIP &amp; High Value).</li>
+            <li>Identify risky customers early based on overdue behavior.</li>
+            <li>Spot inactive customers and plan win-back campaigns.</li>
+            <li>All logic is rule-based and transparent – no “black box” AI.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Notes (Arabic Summary)</h2>
+        <p dir="rtl">
+            هذا الموديول يضيف تصنيف ذكي للعملاء داخل أودو 19 بدون أي تكامل خارجي.
+            يعتمد على بيانات الفواتير وحالة السداد ويصنّف العميل (VIP، High Value، Active، Low Value، High Risk، Inactive)
+            بشكل تلقائي، مع داشبورد وتقارير تساعد فريق المبيعات والمالية يركزون على العملاء الصح.
+        </p>
+    </div>
+
+</body>
+</html>
