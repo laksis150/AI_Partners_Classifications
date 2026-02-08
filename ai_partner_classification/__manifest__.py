@@ -6,7 +6,7 @@
     "website": "https://actechsit.com",
     "category": "Sales/CRM",
     "license": "LGPL-3",
-    "price":"25.0",
+    "price":"24.90",
     "images": [
     "static/description/cover.png",    
     "static/description/icon.png"             
@@ -30,5 +30,6 @@
     "application": True,
     "auto_install": False,
 }
+
 
 
